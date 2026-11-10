@@ -110,3 +110,127 @@ List of tables that experienced errors while converting:
 Finished conversion at 10/11/2026 19:43:19,67
 Total conversion time: 0:0:0:0,969
 ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+Starting conversion at 10/11/2026 21:12:17,591
+////////////////////////////////////////////////////////////
+
+------------------------------------------------------------
+Converting Recnum table: 270, DFLastID, DFLastID
+Progress:Start time: 10/11/2026 21:12:17,63
+Start time: 10/11/2026 21:12:17,63
+Structure_Start
+Structure_Copy
+Set_Attribute DF_FILE_PRIMARY_INDEX to 0
+AssignMinimalLength
+RealignOverlaps
+Structure_End
+Progress:Creating new table.
+Creating new table.
+Progress:ERROR 12289: Error general HY000 (4028)--[MySQL][ODBC 26.10(w) Driver][mysqld-9.5.0]A table must have at least one visible column.  Table = DFLastID (0), Source = ODBC_DRV.Structure_End.CreateTable
+ERROR 12289: Error general HY000 (4028)--[MySQL][ODBC 26.10(w) Driver][mysqld-9.5.0]A table must have at least one visible column.  Table = DFLastID (0), Source = ODBC_DRV.Structure_End.CreateTable
+Progress:End time: 10/11/2026 21:12:17,654
+End time: 10/11/2026 21:12:17,654
+Progress:Total time to convert table: 0:0:0:0,024
+Total time to convert table: 0:0:0:0,024
+
+############################################################
+List of tables that experienced errors while converting:
+   DFLastID - Unable to create.
+////////////////////////////////////////////////////////////
+Finished conversion at 10/11/2026 21:12:17,667
+Total conversion time: 0:0:0:0,044
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+Starting conversion at 10/11/2026 21:16:33,867
+////////////////////////////////////////////////////////////
+
+------------------------------------------------------------
+Converting Recnum table: 270, DFLastID, DFLastID
+Progress:Start time: 10/11/2026 21:16:33,879
+Start time: 10/11/2026 21:16:33,879
+Structure_Start
+Structure_Copy
+Set_Attribute DF_FILE_PRIMARY_INDEX to 0
+AssignMinimalLength
+RealignOverlaps
+Structure_End
+Progress:Creating new table.
+Creating new table.
+Progress:ERROR 12289: Error general HY000 (4028)--[MySQL][ODBC 26.10(w) Driver][mysqld-9.5.0]A table must have at least one visible column.  Table = DFLastID (0), Source = ODBC_DRV.Structure_End.CreateTable
+ERROR 12289: Error general HY000 (4028)--[MySQL][ODBC 26.10(w) Driver][mysqld-9.5.0]A table must have at least one visible column.  Table = DFLastID (0), Source = ODBC_DRV.Structure_End.CreateTable
+Progress:End time: 10/11/2026 21:16:33,907
+End time: 10/11/2026 21:16:33,907
+Progress:Total time to convert table: 0:0:0:0,028
+Total time to convert table: 0:0:0:0,028
+
+############################################################
+List of tables that experienced errors while converting:
+   DFLastID - Unable to create.
+////////////////////////////////////////////////////////////
+Finished conversion at 10/11/2026 21:16:33,917
+Total conversion time: 0:0:0:0,047
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+Starting conversion at 10/11/2026 21:21:27,922
+////////////////////////////////////////////////////////////
+Progress:ERROR 4402: Connection Id '' not found
+ERROR 4402: Connection Id '' not found
+
+------------------------------------------------------------
+Converting Recnum table: 270, DFLastID, DFLastID
+Progress:Start time: 10/11/2026 21:21:27,942
+Start time: 10/11/2026 21:21:27,942
+Structure_Start
+Structure_Copy
+Set_Attribute DF_FILE_PRIMARY_INDEX to 0
+AssignMinimalLength
+RealignOverlaps
+Structure_End
+Progress:Creating new table.
+Creating new table.
+Progress:ERROR 12289: Error general HY000 (4028)--[MySQL][ODBC 26.10(w) Driver][mysqld-9.5.0]A table must have at least one visible column.  Table = DFLastID (0), Source = ODBC_DRV.Structure_End.CreateTable
+ERROR 12289: Error general HY000 (4028)--[MySQL][ODBC 26.10(w) Driver][mysqld-9.5.0]A table must have at least one visible column.  Table = DFLastID (0), Source = ODBC_DRV.Structure_End.CreateTable
+Progress:End time: 10/11/2026 21:21:27,973
+End time: 10/11/2026 21:21:27,973
+Progress:Total time to convert table: 0:0:0:0,031
+Total time to convert table: 0:0:0:0,031
+
+############################################################
+List of tables that experienced errors while converting:
+   DFLastID - Unable to create.
+////////////////////////////////////////////////////////////
+Finished conversion at 10/11/2026 21:21:27,988
+Total conversion time: 0:0:0:0,052
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+Starting conversion at 10/11/2026 21:23:04,874
+////////////////////////////////////////////////////////////
+Progress:ERROR 4402: Connection Id '' not found
+ERROR 4402: Connection Id '' not found
+
+------------------------------------------------------------
+Converting Recnum table: 270, DFLastID, DFLastID
+Progress:Start time: 10/11/2026 21:23:04,89
+Start time: 10/11/2026 21:23:04,89
+Structure_Start
+Structure_Copy
+Set_Attribute DF_FILE_PRIMARY_INDEX to 0
+AssignMinimalLength
+RealignOverlaps
+Structure_End
+Progress:Creating new table.
+Creating new table.
+Progress:ERROR 12289: Error general HY000 (4028)--[MySQL][ODBC 26.10(w) Driver][mysqld-9.5.0]A table must have at least one visible column.  Table = DFLastID (0), Source = ODBC_DRV.Structure_End.CreateTable
+ERROR 12289: Error general HY000 (4028)--[MySQL][ODBC 26.10(w) Driver][mysqld-9.5.0]A table must have at least one visible column.  Table = DFLastID (0), Source = ODBC_DRV.Structure_End.CreateTable
+Progress:End time: 10/11/2026 21:23:04,913
+End time: 10/11/2026 21:23:04,913
+Progress:Total time to convert table: 0:0:0:0,023
+Total time to convert table: 0:0:0:0,023
+
+############################################################
+List of tables that experienced errors while converting:
+   DFLastID - Unable to create.
+////////////////////////////////////////////////////////////
+Finished conversion at 10/11/2026 21:23:04,926
+Total conversion time: 0:0:0:0,042
+////////////////////////////////////////////////////////////
