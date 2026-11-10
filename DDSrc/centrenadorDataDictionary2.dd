@@ -1,0 +1,10 @@
+﻿Use centrenadorDataDictionary.dd
+
+Class centrenadorDataDictionary2 is a centrenadorDataDictionary
+    
+    Procedure Construct_Object
+        Forward Send Construct_Object
+
+    End_Procedure
+
+End_Class
