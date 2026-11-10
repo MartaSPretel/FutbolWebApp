@@ -1,0 +1,6 @@
+Programs/*.exe
+*.prn
+*.err
+*.dbg
+*.pbo
+*.loc
