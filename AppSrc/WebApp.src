@@ -1,6 +1,5 @@
 ﻿Use AllWebAppClasses.pkg
 Use cConnection.pkg
-Use cWebMenuItem.pkg
 
 Object oApplication is a cApplication
     Object oConnection is a cConnection
@@ -52,17 +51,6 @@ Object oWebApp is a cWebApp
 
                 Object oViewMenu is a cWebMenuItem
                     Set psCaption to C_$View
-
-                    Object oEquipoItem1 is a cWebMenuItem
-                        Set psCaption to "Equipo"
-
-                        WebRegisterPath ntNavigateBegin oSelectEquipo
-
-                        Procedure OnClick
-                            Forward Send OnClick
-                                Send NavigatePath
-                        End_Procedure
-                    End_Object
                 End_Object
 
                 Object oSignOut_itm is a cWebMenuItem
@@ -143,11 +131,7 @@ Object oWebApp is a cWebApp
     Use Login.wo
     Use WebResourceManager.wo
     
-    Use ZoomLiga.wo
-    Use SelectLiga.wo
-    Use ZoomEquipo.wo
     Use Dashboard.wo
-    Use SelectEquipo.wo
     Set phoDefaultView to oDashboard
 
 End_Object
