@@ -110,3 +110,208 @@ List of tables that experienced errors while converting:
 Finished conversion at 10/11/2026 19:43:19,67
 Total conversion time: 0:0:0:0,969
 ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+Starting conversion at 10/11/2026 21:43:04,335
+////////////////////////////////////////////////////////////
+Progress:ERROR 4402: Connection Id '' not found
+ERROR 4402: Connection Id '' not found
+
+------------------------------------------------------------
+Converting Recnum table: 270, DFLastID, DFLastID
+Progress:Start time: 10/11/2026 21:43:04,355
+Start time: 10/11/2026 21:43:04,355
+Structure_Start
+Structure_Copy
+Set_Attribute DF_FILE_PRIMARY_INDEX to 0
+AssignMinimalLength
+RealignOverlaps
+Structure_End
+Progress:Creating new table.
+Creating new table.
+Progress:ERROR 12289: Error general HY000 (4028)--[MySQL][ODBC 26.10(w) Driver][mysqld-9.5.0]A table must have at least one visible column.  Table = DFLastID (0), Source = ODBC_DRV.Structure_End.CreateTable
+ERROR 12289: Error general HY000 (4028)--[MySQL][ODBC 26.10(w) Driver][mysqld-9.5.0]A table must have at least one visible column.  Table = DFLastID (0), Source = ODBC_DRV.Structure_End.CreateTable
+Progress:End time: 10/11/2026 21:43:04,383
+End time: 10/11/2026 21:43:04,383
+Progress:Total time to convert table: 0:0:0:0,028
+Total time to convert table: 0:0:0:0,028
+
+############################################################
+List of tables that experienced errors while converting:
+   DFLastID - Unable to create.
+////////////////////////////////////////////////////////////
+Finished conversion at 10/11/2026 21:43:04,395
+Total conversion time: 0:0:0:0,047
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+Starting conversion at 10/11/2026 21:51:48,087
+////////////////////////////////////////////////////////////
+Progress:ERROR 4402: Connection Id '' not found
+ERROR 4402: Connection Id '' not found
+
+------------------------------------------------------------
+Converting Recnum table: 263, WebAppSession, WebApp Session
+Progress:Start time: 10/11/2026 21:51:48,104
+Start time: 10/11/2026 21:51:48,104
+Structure_Start
+Structure_Copy
+Set_Attribute DF_FILE_RECNUM_TABLE to 0
+Replacing recnum with primary index:1
+Set_Attribute DF_FILE_PRIMARY_INDEX to 1
+Set_Attribute DF_INDEX_SQL_PRIMARY_KEY to 1
+AssignMinimalLength
+RealignOverlaps
+Structure_End
+Progress:Creating new table.
+Creating new table.
+Progress:Creating primary key PRIMARY.
+Creating primary key PRIMARY.
+Progress:Creating index WebAppSession002.
+Creating index WebAppSession002.
+Progress:Creating index WebAppSession003.
+Creating index WebAppSession003.
+Progress:Creating intermediate file.
+Creating intermediate file.
+CLI_DROPINDICES
+Progress:Temporary delete of all indices of table webappsession.
+Temporary delete of all indices of table webappsession.
+Progress:Dropping primary key PRIMARY.
+Dropping primary key PRIMARY.
+Progress:Dropping index WebAppSession002.
+Dropping index WebAppSession002.
+Progress:Dropping index WebAppSession003.
+Dropping index WebAppSession003.
+Progress:Copying record
+Progress:All 0 records copied.
+All 0 records copied.
+CLI_CREATEINDICES
+Progress:Re-creating temporary deleted indices of table webappsession.
+Re-creating temporary deleted indices of table webappsession.
+Progress:Creating primary key PRIMARY.
+Creating primary key PRIMARY.
+Progress:Creating index WebAppSession002.
+Creating index WebAppSession002.
+Progress:Creating index WebAppSession003.
+Creating index WebAppSession003.
+Close hSQLTable
+Close ahTables[iCount]
+Adjust filelist slot
+Output_def_file
+Progress:End time: 10/11/2026 21:51:49,092
+End time: 10/11/2026 21:51:49,092
+Progress:Total time to convert table: 0:0:0:0,988
+Total time to convert table: 0:0:0:0,988
+
+------------------------------------------------------------
+Converting Recnum table: 264, WebAppUser, WebApp User
+Progress:Start time: 10/11/2026 21:51:49,105
+Start time: 10/11/2026 21:51:49,105
+Structure_Start
+Structure_Copy
+Set_Attribute DF_FILE_RECNUM_TABLE to 0
+Replacing recnum with primary index:1
+Set_Attribute DF_FILE_PRIMARY_INDEX to 1
+Set_Attribute DF_INDEX_SQL_PRIMARY_KEY to 1
+AssignMinimalLength
+RealignOverlaps
+Structure_End
+Progress:Creating new table.
+Creating new table.
+Progress:Creating primary key PRIMARY.
+Creating primary key PRIMARY.
+Progress:Creating intermediate file.
+Creating intermediate file.
+CLI_DROPINDICES
+Progress:Temporary delete of all indices of table webappuser.
+Temporary delete of all indices of table webappuser.
+Progress:Dropping primary key PRIMARY.
+Dropping primary key PRIMARY.
+Progress:Copying record
+Progress:All 1 records copied.
+All 1 records copied.
+CLI_CREATEINDICES
+Progress:Re-creating temporary deleted indices of table webappuser.
+Re-creating temporary deleted indices of table webappuser.
+Progress:Creating primary key PRIMARY.
+Creating primary key PRIMARY.
+Close hSQLTable
+Close ahTables[iCount]
+Adjust filelist slot
+Output_def_file
+Progress:End time: 10/11/2026 21:51:49,704
+End time: 10/11/2026 21:51:49,704
+Progress:Total time to convert table: 0:0:0:0,599
+Total time to convert table: 0:0:0:0,599
+
+------------------------------------------------------------
+Converting Recnum table: 265, WebAppServerProps, WebApp Server Props
+Progress:Start time: 10/11/2026 21:51:49,719
+Start time: 10/11/2026 21:51:49,719
+Structure_Start
+Structure_Copy
+Set_Attribute DF_FILE_RECNUM_TABLE to 0
+Replacing recnum with primary index:1
+Set_Attribute DF_FILE_PRIMARY_INDEX to 1
+Set_Attribute DF_INDEX_SQL_PRIMARY_KEY to 1
+AssignMinimalLength
+RealignOverlaps
+Structure_End
+Progress:Creating new table.
+Creating new table.
+Progress:Creating primary key PRIMARY.
+Creating primary key PRIMARY.
+Progress:Creating index WebAppServerProps002.
+Creating index WebAppServerProps002.
+Progress:Creating intermediate file.
+Creating intermediate file.
+CLI_DROPINDICES
+Progress:Temporary delete of all indices of table webappserverprops.
+Temporary delete of all indices of table webappserverprops.
+Progress:Dropping primary key PRIMARY.
+Dropping primary key PRIMARY.
+Progress:Dropping index WebAppServerProps002.
+Dropping index WebAppServerProps002.
+Progress:Copying record
+Progress:All 0 records copied.
+All 0 records copied.
+CLI_CREATEINDICES
+Progress:Re-creating temporary deleted indices of table webappserverprops.
+Re-creating temporary deleted indices of table webappserverprops.
+Progress:Creating primary key PRIMARY.
+Creating primary key PRIMARY.
+Progress:Creating index WebAppServerProps002.
+Creating index WebAppServerProps002.
+Close hSQLTable
+Close ahTables[iCount]
+Adjust filelist slot
+Output_def_file
+Progress:End time: 10/11/2026 21:51:50,426
+End time: 10/11/2026 21:51:50,426
+Progress:Total time to convert table: 0:0:0:0,707
+Total time to convert table: 0:0:0:0,707
+
+------------------------------------------------------------
+Converting Recnum table: 270, DFLastID, DFLastID
+Progress:Start time: 10/11/2026 21:51:50,44
+Start time: 10/11/2026 21:51:50,44
+Structure_Start
+Structure_Copy
+Set_Attribute DF_FILE_PRIMARY_INDEX to 0
+AssignMinimalLength
+RealignOverlaps
+Structure_End
+Progress:Creating new table.
+Creating new table.
+Progress:ERROR 12289: Error general HY000 (4028)--[MySQL][ODBC 26.10(w) Driver][mysqld-9.5.0]A table must have at least one visible column.  Table = DFLastID (0), Source = ODBC_DRV.Structure_End.CreateTable
+ERROR 12289: Error general HY000 (4028)--[MySQL][ODBC 26.10(w) Driver][mysqld-9.5.0]A table must have at least one visible column.  Table = DFLastID (0), Source = ODBC_DRV.Structure_End.CreateTable
+Progress:End time: 10/11/2026 21:51:50,46
+End time: 10/11/2026 21:51:50,46
+Progress:Total time to convert table: 0:0:0:0,02
+Total time to convert table: 0:0:0:0,02
+
+############################################################
+List of tables that experienced errors while converting:
+   DFLastID - Unable to create.
+////////////////////////////////////////////////////////////
+Finished conversion at 10/11/2026 21:51:50,47
+Total conversion time: 0:0:0:2,372
+////////////////////////////////////////////////////////////
