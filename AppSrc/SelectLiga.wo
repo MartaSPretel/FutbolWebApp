@@ -32,7 +32,7 @@ Object oSelectLiga is a cWebView
         Set piColumnSpan to 0
         Set pbServerOnRowClick to True
         Set psCSSClass to "MobileList"
-        Set piSortColumn to 0
+        Set piSortColumn to 1
         Set pbShowHeader to False
 
         Object oColNombre is a cWebColumn
