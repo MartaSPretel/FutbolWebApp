@@ -8,6 +8,11 @@
 				<DDClass>
 					<className>centrenadorDataDictionary</className>
 					<classFile>centrenadorDataDictionary.dd</classFile>
+					<preferred>false</preferred>
+				</DDClass>
+				<DDClass>
+					<className>centrenadorDataDictionary2</className>
+					<classFile>centrenadorDataDictionary2.dd</classFile>
 					<preferred>true</preferred>
 				</DDClass>
 			</DDClasses>
@@ -41,6 +46,11 @@
 				<DDClass>
 					<className>cjugadorposicionDataDictionary</className>
 					<classFile>cjugadorposicionDataDictionary.dd</classFile>
+					<preferred>false</preferred>
+				</DDClass>
+				<DDClass>
+					<className>cjugadorposicionDataDictionary2</className>
+					<classFile>cjugadorposicionDataDictionary2.dd</classFile>
 					<preferred>true</preferred>
 				</DDClass>
 			</DDClasses>
