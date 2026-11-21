@@ -2,35 +2,41 @@
 Use cWebPanel.pkg
 Use cWebForm.pkg 
 Use cWebGroup.pkg
+Use cWebButton.pkg
 Use cWebMenuGroup.pkg 
 Use cWebMenuItem.pkg
+Use cWebList.pkg
+Use cWebColumn.pkg
 Use cligaDataDictionary.dd
+Use cequipoDataDictionary.dd
 
 Object oZoomLiga is a cWebView
 
-    // Your DDO structure will go here
     Object oLiga_DD is a cligaDataDictionary
     End_Object
+
+    // DDO hijo: equipos de la liga actual (lista embebida)
+    Object oEquipo_DD is a cequipoDataDictionary
+        Set DDO_Server to oLiga_DD
+        // Relates-to constraint: solo los equipos de la liga que se esta viendo
+        Set Constrain_File to liga.File_Number
+    End_Object
+
     Set Main_DD to oLiga_DD
     Set Server  to oLiga_DD
 
     Set peWebViewStyle to wvsDrillDown
     Set peViewType to vtZoom
     Set pbShowCaption to False
-    Set Verify_Save_msg to 0 // don't confirm saves
-    
+    Set Verify_Save_msg to 0
     Set psCaption to "Liga"
-
     Set piMaxWidth to 1024
     Set piColumnCount to 12
 
     Object oWebMainPanel is a cWebPanel
         Set piColumnCount to 12
         WebSetResponsive piColumnCount rmMobile to 6
-        
-        // place controls here
-        // Your view will grow as controls are added
-        
+
         Object oForm_Nombre is a cWebForm
             Entry_Item Liga.Nombre
             Set piColumnSpan to 6
@@ -41,7 +47,7 @@ Object oZoomLiga is a cWebView
         Object oForm_Pais is a cWebForm
             Entry_Item Liga.Pais
             Set piColumnSpan to 6
-            Set psLabel to "País:"
+            Set psLabel to "Pais:"
             Set peLabelPosition to lpTop
         End_Object
 
@@ -55,26 +61,50 @@ Object oZoomLiga is a cWebView
         Object oForm_EquiposMax is a cWebForm
             Entry_Item Liga.EquiposMax
             Set piColumnSpan to 6
-            Set psLabel to "Equipos máx.:"
+            Set psLabel to "Equipos max.:"
             Set peLabelPosition to lpTop
         End_Object
-        
+
+        // === CASO FromParent 1 (boton): de la liga (padre) a sus equipos (hijos) ===
+        Object oVerEquiposBtn is a cWebButton
+            Set psCaption to "Ver equipos"
+            Set piColumnSpan to 12
+            WebRegisterPath ntNavigateForward oSelectEquipo
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+            // Pasar el ID de la liga actual para que SelectEquipo filtre
+            Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
+                Move (NamedValueAdd(NavigateData.NamedValues, "LigaID", Liga.ID)) to NavigateData.NamedValues
+            End_Procedure
+        End_Object
+
+        // === CASO FromParent 2 (embebido): equipos de esta liga dentro de la ficha ===
+        Object oEquiposList is a cWebList
+            Set Server to oEquipo_DD
+            Set pbDataAware to True
+            Set piColumnSpan to 12
+            Set pbShowHeader to True
+
+            Object oColEquipo is a cWebColumn
+                Entry_Item Equipo.Nombre
+                Set psCaption to "Equipos de la liga"
+            End_Object
+        End_Object
+
     End_Object 
-    
-    // add action menu items here
-    // we've included some common buttons 
+
     Object oActionGroup is a cWebMenuGroup
         Set psGroupName to "MainActions"
 
         Object oSaveBtn is a cWebMenuItem
             Set psCaption to C_$Save
             Set psCSSClass to "WebSaveMenuItem"
-        
             Procedure OnClick
                 Send Request_Save
             End_Procedure
         End_Object
-        
+
         Object oEditBtn is a cWebMenuItem
             Set psCaption to C_$CategoryEdit
             Set psCSSClass to "WebEditMenuItem"
@@ -83,12 +113,11 @@ Object oZoomLiga is a cWebView
                 Send SetActionButtons
             End_Procedure
         End_Object 
-        
+
         Object oDeleteBtn is a cWebMenuItem
             Set psCaption to C_$Delete
             Set psCSSClass to "WebDeleteMenuItem"
             Set peActionDisplay to adMenu            
-            
             Procedure OnClick
                 Send Request_Delete
             End_Procedure
@@ -97,38 +126,29 @@ Object oZoomLiga is a cWebView
         Object oCancelChangesBtn is a cWebMenuItem
             Set psCaption to C_$ToolTipClear
             Set peActionDisplay to adMenu            
-                        
             Procedure OnClick
-                // this will undo any unchanged saves and show the latest
                 Send RefreshRecord
             End_Procedure
         End_Object 
 
     End_Object
 
-    // This can be used to show and hide buttons based on context.
-    // This can be called any time the view is active.
     Procedure SetActionButtons
         tWebNavigateData NavigateData
         Boolean bHasRecord
         Handle hoDD
-
         Get Server to hoDD
         Get GetNavigateData to NavigateData
-        
         If (hoDD) Begin
             Get HasRecord of hoDD to bHasRecord
         End
         Else Begin
             Move False to bHasRecord
         End
-
-        // let's hide all buttons and then show the ones we want
         WebSet pbRender of oEditBtn to False 
         WebSet pbRender of oSaveBtn to False
         WebSet pbRender of oCancelChangesBtn to False
         WebSet pbRender of oDeleteBtn to False
-
         If (NavigateData.bReadOnly) Begin 
             WebSet pbRender of oEditBtn to True 
         End
@@ -139,35 +159,25 @@ Object oZoomLiga is a cWebView
         End
     End_Procedure
 
-    // this will close the view after a save
     Procedure OnViewSaved Handle hoServer Boolean bChanged
         Send NavigateClose Self
     End_Procedure
 
-    // this will close the view after a delete
     Procedure OnViewDeleted Handle hoDDO
         Send NavigateClose Self
     End_Procedure
 
-    // Add code to customize your Zoom View based on how it was invoked.
     Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
-
         Case Begin
             Case (NavigateData.eNavigateType = nfFromMain)
                 Case Break
-                
             Case (NavigateData.eNavigateType = nfFromParent)
                 Case Break
-                
             Case (NavigateData.eNavigateType = nfFromChild)
                 Case Break
-                
-            Case Else // must be nfUndefined
-                  
+            Case Else
         Case End
-
         Send SetActionButtons
-
     End_Procedure
 
 End_Object
