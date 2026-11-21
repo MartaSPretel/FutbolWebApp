@@ -11,7 +11,6 @@ Use cjugadorDataDictionary.dd
 
 Object oSelectJugador is a cWebView
 
-    // Your DDO structure will go here
     Object oJugador_DD is a cjugadorDataDictionary
     End_Object
     Set Main_DD to oJugador_DD
@@ -19,12 +18,9 @@ Object oSelectJugador is a cWebView
 
     Set peWebViewStyle to wvsDrillDown
     Set peViewType to vtSelect
-    
     Set psCaption to "Jugadores"
-
     Set piMaxWidth to 1024
     Set piColumnCount to 6
-
     WebSetResponsive piColumnCount rmTabletPortrait to 3
 
     Object oList is a cWebList
@@ -50,17 +46,13 @@ Object oSelectJugador is a cWebView
             Set psBtnCssClass to "WebButtonIcon WebIcon_Info"
             Set peAlign to alignRight
             Set piListRowSpan to 2
-	    
             WebRegisterPath ntNavigateForward oZoomJugador
-
             Procedure OnClick
                 Send NavigatePath
             End_Procedure
-
             Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
                 Move True to NavigateData.bReadOnly
             End_Procedure
-
         End_Object 
         
         Object oColNombre is a cWebColumn
@@ -70,8 +62,10 @@ Object oSelectJugador is a cWebView
             Set psCSSClass to "RowDetail"
         End_Object
 
-        Procedure OnRowClick String sRowID
+        // (NUEVO) Registrar la ruta para el historial del drill-down
+        WebRegisterPath ntNavigateForward oZoomJugador
 
+        Procedure OnRowClick String sRowID
             tWebNavigateData NavigateData
             Get GetNavigateData to NavigateData
             Case Begin
@@ -83,15 +77,13 @@ Object oSelectJugador is a cWebView
                 Case (NavigateData.eNavigateType=nfFromMain)
                     Send NavigateClose Self
                     Case Break
-                Case Else // must be nfUndefined
-                    Send NavigateForward of oZoomJugador Self
+                Case Else // nfUndefined
+                    Send NavigatePath
             Case End
-
         End_Procedure
 
         Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
         End_Procedure
-
     End_Object    
     
     Object oActionGroup is a cWebMenuGroup
@@ -100,7 +92,6 @@ Object oSelectJugador is a cWebView
         Object oSearch is a cWebMenuItem
             Set psCaption to C_$Search
             Set psCSSClass to "WebPromptMenuItem"
-        
             Procedure OnClick
                 Send Search of oList
             End_Procedure            
@@ -109,43 +100,34 @@ Object oSelectJugador is a cWebView
         Object oNewButton is a cWebMenuItem
             Set psCaption to C_$New
             Set psCSSClass to "WebClearMenuItem"
-            
             WebRegisterPath ntNavigateForward oZoomJugador
-
             Procedure OnClick
                 Send NavigatePath
             End_Procedure
-
             Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
                 Move True to NavigateData.bNewRecord
             End_Procedure
-
         End_Object 
 
         Object oFindTop is a cWebMenuItem
             Set psCaption to C_$Top
             Set peActionDisplay to adMenu
             Set pbBeginGroup to True             
-        
             Procedure OnClick
                 Send MoveToFirstRow of oList
             End_Procedure
-            
         End_Object
 
         Object oFindLast is a cWebMenuItem
             Set psCaption to C_$Bottom
             Set peActionDisplay to adMenu             
-        
             Procedure OnClick
                 Send MoveToLastRow of oList
             End_Procedure
-            
         End_Object
     End_Object
 
     Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
-
         Case Begin
             Case (NavigateData.eNavigateType=nfFromParent)
                 Case Break
@@ -153,9 +135,8 @@ Object oSelectJugador is a cWebView
                 Case Break
             Case (NavigateData.eNavigateType=nfFromMain)
                 Case Break
-            Case Else // must be nfUndefined
+            Case Else
         Case End
-        
     End_Procedure
 
 End_Object
